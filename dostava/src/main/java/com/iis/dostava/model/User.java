@@ -51,7 +51,7 @@ public class User implements UserDetails {
     private Timestamp lastPasswordResetDate;
 
     @Column
-    private boolean enabled;
+    private boolean enabled = true;
 
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -64,6 +64,12 @@ public class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.authorities;
+    }
+
+
+    @Transient
+    public String getDecriminatorValue() {
+        return this.getClass().getAnnotation(DiscriminatorValue.class).value();
     }
 
 
