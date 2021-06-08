@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,6 +22,9 @@ public class Narudzbina {
 
     @Column
     private LocalDate datum;
+
+    @Column
+    private Boolean narucena;
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Kupac kupac;
@@ -93,5 +97,13 @@ public class Narudzbina {
 
     public void setNarudzbineProizvodi(Set<NarudzbinaProizvodi> narudzbineProizvodi) {
         this.narudzbineProizvodi = narudzbineProizvodi;
+    }
+
+    public Boolean getNarucena() {
+        return narucena;
+    }
+
+    public void setNarucena(Boolean narucena) {
+        this.narucena = narucena;
     }
 }

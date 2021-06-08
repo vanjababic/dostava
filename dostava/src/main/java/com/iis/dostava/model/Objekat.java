@@ -18,6 +18,10 @@ public class Objekat {
     @OneToMany(mappedBy = "objekat", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Narudzbina> narudzbine = new HashSet<Narudzbina>();
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "objekat", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Kuvar> kuvari = new HashSet<Kuvar>();
+
     @Column
     private String naziv;
 

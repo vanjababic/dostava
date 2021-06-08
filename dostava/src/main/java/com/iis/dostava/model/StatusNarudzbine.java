@@ -17,6 +17,9 @@ public class StatusNarudzbine {
     private Boolean odbijena;
 
     @Column
+    private Boolean dodeljenObjekat;
+
+    @Column
     private Boolean prihvatioKuvar;
 
     @Column
@@ -40,14 +43,17 @@ public class StatusNarudzbine {
     public StatusNarudzbine() {
     }
 
-    public StatusNarudzbine(Integer id, Boolean prihvatioKuvar, Boolean dodeljenDostavljac, Boolean preuzetaIzRestorana, LocalDateTime vremePreuzimanjaIzRestorana, Boolean dostavljenaKorisniku, LocalDateTime vremeDostavljanja) {
+    public StatusNarudzbine(Integer id, Boolean odbijena, Boolean dodeljenObjekat, Boolean prihvatioKuvar, Boolean dodeljenDostavljac, Boolean preuzetaIzRestorana, LocalDateTime vremePreuzimanjaIzRestorana, Boolean dostavljenaKorisniku, LocalDateTime vremeDostavljanja, Narudzbina narudzbina) {
         this.id = id;
+        this.odbijena = odbijena;
+        this.dodeljenObjekat = dodeljenObjekat;
         this.prihvatioKuvar = prihvatioKuvar;
         this.dodeljenDostavljac = dodeljenDostavljac;
         this.preuzetaIzRestorana = preuzetaIzRestorana;
         this.vremePreuzimanjaIzRestorana = vremePreuzimanjaIzRestorana;
         this.dostavljenaKorisniku = dostavljenaKorisniku;
         this.vremeDostavljanja = vremeDostavljanja;
+        this.narudzbina = narudzbina;
     }
 
     public Integer getId() {
@@ -104,5 +110,29 @@ public class StatusNarudzbine {
 
     public void setVremeDostavljanja(LocalDateTime vremeDostavljanja) {
         this.vremeDostavljanja = vremeDostavljanja;
+    }
+
+    public Boolean getOdbijena() {
+        return odbijena;
+    }
+
+    public void setOdbijena(Boolean odbijena) {
+        this.odbijena = odbijena;
+    }
+
+    public Boolean getDodeljenObjekat() {
+        return dodeljenObjekat;
+    }
+
+    public void setDodeljenObjekat(Boolean dodeljenObjekat) {
+        this.dodeljenObjekat = dodeljenObjekat;
+    }
+
+    public Narudzbina getNarudzbina() {
+        return narudzbina;
+    }
+
+    public void setNarudzbina(Narudzbina narudzbina) {
+        this.narudzbina = narudzbina;
     }
 }

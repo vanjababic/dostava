@@ -36,6 +36,7 @@ public class KupacController {
         Set<ProizvodDTO> proizvodi = kupacService.getNarudzbina(user);
 
         return new ResponseEntity<>(proizvodi, HttpStatus.OK);
+
     }
 
 }

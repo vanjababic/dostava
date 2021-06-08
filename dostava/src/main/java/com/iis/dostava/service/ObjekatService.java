@@ -5,6 +5,7 @@ import com.iis.dostava.model.Narudzbina;
 import com.iis.dostava.model.Objekat;
 import com.iis.dostava.repository.NarudzbinaRepository;
 import com.iis.dostava.repository.ObjekatRepository;
+import com.iis.dostava.repository.StatusNarudzbineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,12 @@ public class ObjekatService {
 
     private ObjekatRepository objekatRepository;
     private NarudzbinaRepository narudzbinaRepository;
+    private StatusNarudzbineRepository statusNarudzbineRepository;
+
+    @Autowired
+    public void setStatusNarudzbineRepository(StatusNarudzbineRepository statusNarudzbineRepository) {
+        this.statusNarudzbineRepository = statusNarudzbineRepository;
+    }
 
     @Autowired
     public void setNarudzbinaRepository(NarudzbinaRepository narudzbinaRepository) {
@@ -28,10 +35,13 @@ public class ObjekatService {
 
         Narudzbina narudzbina = narudzbinaRepository.findOneById(narudzbinaId.getId());
 
-        Objekat objekat = objekatRepository.findOneById(2);
+        Objekat objekat = objekatRepository.findOneById(1);
 
         narudzbina.setObjekat(objekat);
-        this.narudzbinaRepository.save(narudzbina);
+        narudzbina.getStatusNarudzbine().setDodeljenObjekat(true);
+        narudzbina.setNarucena(true);
 
+        this.narudzbinaRepository.save(narudzbina);
+        this.statusNarudzbineRepository.save(narudzbina.getStatusNarudzbine());
     }
 }
