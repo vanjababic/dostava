@@ -25,4 +25,36 @@ public class NarudzbinaProizvodi {
 
     public NarudzbinaProizvodi() {
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getKolicina() {
+        return kolicina;
+    }
+
+    public void setKolicina(Integer kolicina) {
+        this.kolicina = kolicina;
+    }
+
+    public Narudzbina getNarudzbina() {
+        return narudzbina;
+    }
+
+    public void setNarudzbina(Narudzbina narudzbina) {
+        this.narudzbina = narudzbina;
+    }
+
+    public Proizvod getProizvod() {
+        return proizvod;
+    }
+
+    public void setProizvod(Proizvod proizvod) {
+        this.proizvod = proizvod;
+    }
 }

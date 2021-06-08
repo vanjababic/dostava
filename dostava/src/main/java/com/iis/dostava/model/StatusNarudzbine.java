@@ -14,6 +14,9 @@ public class StatusNarudzbine {
     private Integer id;
 
     @Column
+    private Boolean odbijena;
+
+    @Column
     private Boolean prihvatioKuvar;
 
     @Column

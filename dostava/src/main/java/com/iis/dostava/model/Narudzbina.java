@@ -39,5 +39,59 @@ public class Narudzbina {
     public Narudzbina() {
     }
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Double getUkupnaCena() {
+        return ukupnaCena;
+    }
+
+    public void setUkupnaCena(Double ukupnaCena) {
+        this.ukupnaCena = ukupnaCena;
+    }
+
+    public LocalDate getDatum() {
+        return datum;
+    }
+
+    public void setDatum(LocalDate datum) {
+        this.datum = datum;
+    }
+
+    public Kupac getKupac() {
+        return kupac;
+    }
+
+    public void setKupac(Kupac kupac) {
+        this.kupac = kupac;
+    }
+
+    public Objekat getObjekat() {
+        return objekat;
+    }
+
+    public void setObjekat(Objekat objekat) {
+        this.objekat = objekat;
+    }
+
+    public StatusNarudzbine getStatusNarudzbine() {
+        return statusNarudzbine;
+    }
+
+    public void setStatusNarudzbine(StatusNarudzbine statusNarudzbine) {
+        this.statusNarudzbine = statusNarudzbine;
+    }
+
+    public Set<NarudzbinaProizvodi> getNarudzbineProizvodi() {
+        return narudzbineProizvodi;
+    }
+
+    public void setNarudzbineProizvodi(Set<NarudzbinaProizvodi> narudzbineProizvodi) {
+        this.narudzbineProizvodi = narudzbineProizvodi;
+    }
 }

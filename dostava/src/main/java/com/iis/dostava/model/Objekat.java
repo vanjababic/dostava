@@ -19,8 +19,10 @@ public class Objekat {
     private Set<Narudzbina> narudzbine = new HashSet<Narudzbina>();
 
     @Column
-    private String name;
+    private String naziv;
 
+    public Objekat() {
+    }
 
 
 }
