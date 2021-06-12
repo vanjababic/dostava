@@ -25,8 +25,51 @@ public class Objekat {
     @Column
     private String naziv;
 
+    @Column
+    private String adresa;
+
+
+
     public Objekat() {
     }
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Set<Narudzbina> getNarudzbine() {
+        return narudzbine;
+    }
+
+    public void setNarudzbine(Set<Narudzbina> narudzbine) {
+        this.narudzbine = narudzbine;
+    }
+
+    public Set<Kuvar> getKuvari() {
+        return kuvari;
+    }
+
+    public void setKuvari(Set<Kuvar> kuvari) {
+        this.kuvari = kuvari;
+    }
+
+    public String getNaziv() {
+        return naziv;
+    }
+
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
+    }
+
+    public String getAdresa() {
+        return adresa;
+    }
+
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
+    }
 }

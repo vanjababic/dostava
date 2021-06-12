@@ -43,17 +43,21 @@ public class KupacService {
 
         Narudzbina narudzbina = kupacNarudzbine.iterator().next();
 
-        Set<NarudzbinaProizvodi> narudzbinaProizvod = narudzbinaProizvodiRepository.findAllByNarudzbina(narudzbina);
+        if(narudzbina.getNarucena().equals(false)) {
+            Set<NarudzbinaProizvodi> narudzbinaProizvod = narudzbinaProizvodiRepository.findAllByNarudzbina(narudzbina);
 
-        Set<ProizvodDTO> proizvodiDTO = new HashSet<>();
+            Set<ProizvodDTO> proizvodiDTO = new HashSet<>();
 
-        for (NarudzbinaProizvodi np: narudzbinaProizvod) {
+            for (NarudzbinaProizvodi np : narudzbinaProizvod) {
                 ProizvodDTO p = new ProizvodDTO(np.getNarudzbina().getId(), np.getProizvod().getNaziv(), np.getProizvod().getCena(), np.getKolicina());
                 proizvodiDTO.add(p);
 
-        }
+            }
 
-        return proizvodiDTO;
+            return proizvodiDTO;
+        }else {
+            return null;
+        }
 
 
 

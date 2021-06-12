@@ -50,24 +50,22 @@ public class KuvarService {
         Objekat objekat = kuvar.getObjekat();
         Set<Narudzbina> narudzbine = narudzbinaRepository.findAllByObjekat(objekat);
 
-        Narudzbina narudzbina = new Narudzbina();
+        Narudzbina narudzbina = narudzbine.iterator().next();
 
         Set<ProizvodDTO> proizvodiDTO = new HashSet<>();
 
-        for (Narudzbina n: narudzbine) {
-            if(n.getStatusNarudzbine().getPrihvatioKuvar().equals(false) && n.getStatusNarudzbine().getOdbijena().equals(false)){
-                narudzbina = n;
-                Set<NarudzbinaProizvodi> narudzbinaProizvod = narudzbinaProizvodiRepository.findAllByNarudzbina(n);
 
-                for (NarudzbinaProizvodi np: narudzbinaProizvod) {
-                    ProizvodDTO p = new ProizvodDTO(np.getNarudzbina().getId(), np.getProizvod().getNaziv(), np.getProizvod().getCena(), np.getKolicina());
-                    proizvodiDTO.add(p);
-                }
+        if(narudzbina.getStatusNarudzbine().getPrihvatioKuvar().equals(false) && narudzbina.getStatusNarudzbine().getOdbijena().equals(false) && narudzbina.getNarucena().equals(true)){
 
-                break;
-            }else{
-                return null;
+            Set<NarudzbinaProizvodi> narudzbinaProizvod = narudzbinaProizvodiRepository.findAllByNarudzbina(narudzbina);
+
+            for (NarudzbinaProizvodi np: narudzbinaProizvod) {
+                ProizvodDTO p = new ProizvodDTO(np.getNarudzbina().getId(), np.getProizvod().getNaziv(), np.getProizvod().getCena(), np.getKolicina());
+                proizvodiDTO.add(p);
             }
+        }else{
+            return null;
+
         }
 
         return proizvodiDTO;

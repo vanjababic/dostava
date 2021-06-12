@@ -10,10 +10,26 @@ import java.util.Set;
 @DiscriminatorValue("kupac")
 public class Kupac extends User{
 
+    @Column
+    private String adresa;
+
     @JsonIgnore
     @OneToMany(mappedBy = "kupac", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Narudzbina> narudzbine = new HashSet<Narudzbina>();
 
+    public String getAdresa() {
+        return adresa;
+    }
 
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
+    }
 
+    public Set<Narudzbina> getNarudzbine() {
+        return narudzbine;
+    }
+
+    public void setNarudzbine(Set<Narudzbina> narudzbine) {
+        this.narudzbine = narudzbine;
+    }
 }

@@ -5,6 +5,7 @@ import com.iis.dostava.model.Narudzbina;
 import com.iis.dostava.model.Objekat;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.Set;
 
 public interface NarudzbinaRepository extends JpaRepository<Narudzbina, Integer> {
@@ -12,4 +13,9 @@ public interface NarudzbinaRepository extends JpaRepository<Narudzbina, Integer>
     Set<Narudzbina> findOneByKupac(Kupac kupac);
     Narudzbina findOneById(Integer id);
     Set<Narudzbina> findAllByObjekat(Objekat objekat);
+
+    public default List<Narudzbina> getAll(){
+        return this.findAll();
+    };
+
 }

@@ -26,11 +26,16 @@ public class Narudzbina {
     @Column
     private Boolean narucena;
 
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Kupac kupac;
 
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Objekat objekat;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "narudzbina", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Ponuda> ponude = new HashSet<Ponuda>();
+
 
     @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
