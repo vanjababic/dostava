@@ -3,9 +3,10 @@ insert into "objekat" (id, naziv, adresa) values (nextval('seq_objekat'), 'Loft'
 insert into "objekat" (id, naziv, adresa) values (nextval('seq_objekat'), 'Barrique', 'Njegoseva 3');
 insert into "objekat" (id, naziv, adresa) values (nextval('seq_objekat'), 'Masa', 'Obradoviceva 14');
 
-insert into "users" (rolee, id, email, password, firstName, lastName, address, phone, city, country, enabled, adresa) values ('kupac', nextval('seq_user'), 'fff', '$2y$10$1p9FJ4b6sWPs97ACLIeG8.5VRhK4.4roqBGVI6PQjmnOyKM2jCwou', 'Pera', 'Peric', 'Dunavska', '060111111', 'Novi Sad', 'Srbija', true, 'Maksima Gorkog 4');
-insert into "users" (rolee, id, email, password, firstName, lastName, address, phone, city, country, enabled, objekat_id) values ('kuvar', nextval('seq_user'), 'sss', '$2y$10$1p9FJ4b6sWPs97ACLIeG8.5VRhK4.4roqBGVI6PQjmnOyKM2jCwou', 'Dejan', 'Deki', 'Dunavska', '060111111', 'Novi Sad', 'Srbija', true, 1);
-insert into "users" (rolee, id, email, password, firstName, lastName, address, phone, city, country, enabled) values ('dostavljac', nextval('seq_user'), 'qqq', '$2y$10$1p9FJ4b6sWPs97ACLIeG8.5VRhK4.4roqBGVI6PQjmnOyKM2jCwou', 'Mika', 'Mikic', 'Dunavska', '060111112', 'Novi Sad', 'Srbija', true);
+insert into "users" (rolee, id, email, password, firstName, lastName, address, phone, city, country, enabled, adresa) values ('kupac', nextval('seq_user'), 'kor', '$2y$10$1p9FJ4b6sWPs97ACLIeG8.5VRhK4.4roqBGVI6PQjmnOyKM2jCwou', 'Pera', 'Peric', 'Dunavska', '060111111', 'Novi Sad', 'Srbija', true, 'Maksima Gorkog 4');
+insert into "users" (rolee, id, email, password, firstName, lastName, address, phone, city, country, enabled, objekat_id) values ('kuvar', nextval('seq_user'), 'kuv', '$2y$10$1p9FJ4b6sWPs97ACLIeG8.5VRhK4.4roqBGVI6PQjmnOyKM2jCwou', 'Dejan', 'Deki', 'Dunavska', '060111111', 'Novi Sad', 'Srbija', true, 1);
+insert into "users" (rolee, id, email, password, firstName, lastName, address, phone, city, country, enabled) values ('dostavljac', nextval('seq_user'), 'dos1', '$2y$10$1p9FJ4b6sWPs97ACLIeG8.5VRhK4.4roqBGVI6PQjmnOyKM2jCwou', 'Mika', 'Mikic', 'Dunavska', '060111112', 'Novi Sad', 'Srbija', true);
+insert into "users" (rolee, id, email, password, firstName, lastName, address, phone, city, country, enabled) values ('dostavljac', nextval('seq_user'), 'dos2', '$2y$10$1p9FJ4b6sWPs97ACLIeG8.5VRhK4.4roqBGVI6PQjmnOyKM2jCwou', 'Zika', 'Zikic', 'Dunavska', '060111112', 'Novi Sad', 'Srbija', true);
 
 insert into "statusnarudzbine" (id, odbijena, prihvatioKuvar, dodeljenDostavljac, preuzetaIzRestorana, vremePreuzimanjaIzRestorana, dostavljenaKorisniku, vremeDostavljanja) values (nextval('seq_statusNarudzbine'), false, false, false, false, null, false, null);
 insert into "statusnarudzbine" (id, odbijena, prihvatioKuvar, dodeljenDostavljac, preuzetaIzRestorana, vremePreuzimanjaIzRestorana, dostavljenaKorisniku, vremeDostavljanja) values (nextval('seq_statusNarudzbine'), false, false, false, false, null, false, null);
@@ -36,3 +37,4 @@ INSERT INTO AUTHORITY (name) VALUES ('ROLE_DOSTAVLJAC');
 INSERT INTO USER_AUTHORITY (user_id, authority_id) VALUES (1, 1);
 INSERT INTO USER_AUTHORITY (user_id, authority_id) VALUES (2, 2);
 INSERT INTO USER_AUTHORITY (user_id, authority_id) VALUES (3, 3);
+INSERT INTO USER_AUTHORITY (user_id, authority_id) VALUES (4, 3);

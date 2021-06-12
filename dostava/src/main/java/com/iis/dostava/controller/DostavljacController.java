@@ -1,5 +1,6 @@
 package com.iis.dostava.controller;
 
+import com.iis.dostava.dto.IdDTO;
 import com.iis.dostava.dto.PonudaDTO;
 import com.iis.dostava.dto.ProizvodDTO;
 import com.iis.dostava.model.Dostavljac;
@@ -37,4 +38,16 @@ public class DostavljacController {
 
         return new ResponseEntity<>(proizvodi, HttpStatus.OK);
     }
+
+    @GetMapping(value="/prijavljeniDostavljacId",produces = MediaType.APPLICATION_JSON_VALUE)
+    @PreAuthorize("hasRole('DOSTAVLJAC')")
+    public ResponseEntity<IdDTO> prijavljeniDostavljacId() {
+        Dostavljac user = (Dostavljac) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        Integer id = user.getId();
+        IdDTO dto = new IdDTO();
+        dto.setId(id);
+        return new ResponseEntity<>(dto, HttpStatus.OK);
+    }
+
 }

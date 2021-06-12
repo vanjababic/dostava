@@ -39,7 +39,7 @@ public class DostavljacService {
         Set<PonudaDTO> ponude = new HashSet<>();
 
         //for (Narudzbina n: narudzbine) {
-            if(narudzbine.getStatusNarudzbine().getOdbijena().equals(false) && narudzbine.getStatusNarudzbine().getPrihvatioKuvar().equals(true)){
+            if(narudzbine.getStatusNarudzbine().getOdbijena().equals(false) && narudzbine.getStatusNarudzbine().getPrihvatioKuvar().equals(true) && narudzbine.getStatusNarudzbine().getDodeljenDostavljac().equals(false)){
                 String adresaKupca = narudzbine.getKupac().getAdresa();
                 String adresaObjekta = narudzbine.getObjekat().getAdresa();
                 Integer ponudaId = narudzbine.getId();
